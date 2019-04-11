@@ -159,7 +159,7 @@
 
 
     <script>
-
+        // function to set values
         function Employee(id, name) {
 
           this.Id = id;
@@ -167,7 +167,7 @@
 
         };
 
-
+        // employee array
         var employeeList = [
 
           new Employee(123, "Beth Smith"),
@@ -182,7 +182,7 @@
 
         ];
 
-
+        // employee view model
         function EmployeeViewModel() {
 
           var self = this;
@@ -205,13 +205,14 @@
           self.Employees = ko.observableArray(employeeList);
 
 
+          // edits the employee
           self.edit = function(Employee) {
 
             self.Employee(Employee);
 
           };
 
-
+          // deletes the employee
           self.remove = function(Employee) {
 
             self.Employees.remove(Employee);
@@ -219,12 +220,15 @@
           };
 
 
+          // cancels the employee edit
           self.cancel = function() {
 
             self.Employee(null);
 
           };
 
+
+          // updates the employee list
           self.update = function() {
 
             var l_employee = self.Employee();

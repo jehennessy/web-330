@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <title>JavaScript Trivia</title>
+        <link data-require="bootstrap@4.1.3" data-semver="4.1.3" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+        <script data-require="bootstrap@4.1.3" data-semver="4.1.3" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <script src = "https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+        <script src="app.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      </head>
+
+  <body>
+
+    <h1 class="text-center" id="title">JavaScript Trivia</h1>
+
+    <div class="navigation">
+        <div id="quiz" onclick="openQuiz()">
+            <img src="images/quiz-icon.png" class="nav-icon" id="quiz-icon" alt="Quiz icon" title="Take quiz">
+        </div>
+
+        <div id="rank" onclick="openRank()">
+            <img src="images/rank-icon.png" class="nav-icon" id="rank-icon" alt="Rank icon" title="See ranking">
+        </div>
+
+        <div id="bio" onclick="openBio()">
+            <img src="images/bio-icon.png" class="nav-icon" id="bio-icon" alt="Bio icon" title="View team bio">
+        </div>
+
+        <div id="home" onclick="openHome()">
+            <img src="images/home-icon.png" class="nav-icon" id="home-icon" alt="Home icon" title="Home">
+        </div>
+
+    </div> <!-- End Navigation -->
+
+  <div class="main-container" role="main">
+
+    <div id="home-container">
+      <img src="images/computer-graphic.png" id="home-graphic" alt="Computer graphic">
+    </div>
+
+    <div id="quiz-container">
+
+      <div id="start-quiz">
+        <h2>Test Your Knowledge of JavaScript</h2>
+          <br>
+          <div class="form-group">
+            <label for="UserName"></label>
+            <input type="text" class="form-control quiz-box" id="UserName" placeholder="Enter your name..">
+            <br>
+            <button type="submit" class="btn" id="start-btn" onClick="startQuiz()">START</button>
+          </div>
+
+      </div> <!-- End start quiz -->
+
+        <div class="question" id="q1">
+          <h2>Question #1</h2>
+          <p>What does ES5 stand for?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans1" id="ans1_1" value="a" data-bind = "checked: checkAnswer1"
+            />a. ECMAScript 5
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans1" id="ans1_2" value="b" data-bind = "checked: checkAnswer1" 
+            />b. ECMAScript 2009
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans1" id="ans1_3" value="c" data-bind = "checked: checkAnswer1"
+            />c.	Both A and B
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans1" id="ans1_4" value="d" data-bind = "checked: checkAnswer1"
+            />d. None of the above
+          </div>
+          <br>
+          <button  type="submit" class="btn next-btn" id="quest1Nxt" onClick="nextQuest1()">Next</button>
+       </div> <!-- End question 1 -->
+
+    <div class="question" id="q2">
+        <h2>Question #2</h2>
+        <p>Which is the proper statement to return “Hello World” text to the console.</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans2" id="ans2_1" value="a" data-bind = "checked: checkAnswer2"
+            />a. return Hello World
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans2" id="ans2_2" value="b" data-bind = "checked: checkAnswer2"
+            />b.	Log(“Hello World”);
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans2" id="ans2_3" value="c" data-bind = "checked: checkAnswer2"
+            />c.	console.log("Hello World");
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans2" id="ans2_4" value="d" data-bind = "checked: checkAnswer2"
+            />d.	function(Hello World){}
+        </div>
+        <br>
+        <button class="btn pre-btn" onclick="preQuest1()">Previous</button>
+        <button class="btn next-btn" onclick="nextQuest2()">Next</button>
+    </div> <!-- End question 2 -->
+
+    <div class="question" id="q3">
+        <h2>Question #3</h2>
+        <p>What method calls a function once for each array element?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans3" id="ans3_1" value="a" data-bind = "checked: checkAnswer3"
+            />a.	instanceOf()
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans3" id="ans3_2" value="b" data-bind = "checked: checkAnswer3"
+            />b.	forEach()
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans3" id="ans3_3" value="c" data-bind = "checked: checkAnswer3"
+            />c.	indexOf()
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans3" id="ans3_4" value="d" data-bind = "checked: checkAnswer3"
+            />d. None of the above
+        </div>
+        <br>
+        <button class="btn pre-btn" onclick="preQuest2()">Previous</button>
+        <button class="btn next-btn" onclick="nextQuest3()">Next</button>
+    </div> <!-- End question 3 -->
+
+    <div class="question" id="q4">
+        <h2>Question #4</h2>
+        <p>Which built-in method returns the length of the string?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans4" id="ans4_1" value="a" data-bind = "checked: checkAnswer4"
+            />a.	length()
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans4" id="ans4_2" value="b" data-bind = "checked: checkAnswer4"
+            />b.	size()
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans4" id="ans4_3" value="c" data-bind = "checked: checkAnswer4"
+            />c.	index()
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans4" id="ans4_4" value="d" data-bind = "checked: checkAnswer4"
+            />d.	indexOf()
+        </div>
+        <br>
+        <button class="btn pre-btn" onclick="preQuest3()">Previous</button>
+        <button class="btn next-btn" onclick="nextQuest4()">Next</button>
+    </div> <!-- End question 4 -->
+
+    <div class="question" id="q5">
+        <h2>Question #5</h2>
+        <p>Which is NOT a valid way to create a JavaScript object?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans5" id="ans5_1" value="a" data-bind = "checked: checkAnswer5"
+            />a.	const example =  x;
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans5" id="ans5_2" value="b" data-bind = "checked: checkAnswer5"
+            />b.	var x = new Object();
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans5" id="ans5_3" value="c" data-bind = "checked: checkAnswer5"
+            />c.	var empty = {}
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans5" id="ans5_4" value="d" data-bind = "checked: checkAnswer5"
+            />d.	Object.create()
+        </div>
+        <br>
+        <button class="btn pre-btn" onclick="preQuest4()">Previous</button>
+        <button class="btn next-btn" onclick="nextQuest5()">Next</button>
+    </div> <!-- End question 5 -->
+
+    <div class="question" id="q6">
+        <h2>Question #6</h2>
+        <p>“Public” and “Private” are the two most common keywords in JavaScript syntax to declare accessibility to an object.</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans6" id="ans6_1" value="a" data-bind = "checked: checkAnswer6"
+            />a. True
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans6" id="ans6_2" value="b" data-bind = "checked: checkAnswer6"
+            />b. False
+        </div>
+        <br><br><br><br>
+        <button class="btn pre-btn" onclick="preQuest5()">Previous</button>
+        <button class="btn next-btn" onclick="nextQuest6()">Next</button>
+    </div> <!-- End question 6 -->
+
+    <div class="question" id="q7">
+        <h2>Question #7</h2>
+        <p>Which of the options is the correct way to create an empty array in JavaScript?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans7" id="ans7_1" value="a" data-bind = "checked: checkAnswer7"
+            />a.	var arr = [empty];
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans7" id="ans7_2" value="b" data-bind = "checked: checkAnswer7"
+            />b.	var empty = [];
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans7" id="ans7_3" value="c" data-bind = "checked: checkAnswer7"
+            />c.	var empty = {};
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans7" id="ans7_4" value="d" data-bind = "checked: checkAnswer7"
+            />d.	var arr = a[0];
+        </div>
+        <br>
+        <button class="btn pre-btn" onclick="preQuest6()">Previous</button>
+        <button class="btn next-btn" onclick="nextQuest7()">Next</button>
+    </div> <!-- End question 7 -->
+
+    <div class="question" id="q8">
+        <h2>Question #8</h2>
+        <p>______ JavaScript enables the manipulation of web pages and client browsers.</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans8" id="ans8_1" value="a" data-bind = "checked: checkAnswer8"
+            />a.	Back-End
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans8" id="ans8_2" value="b" data-bind = "checked: checkAnswer8"
+            />b.	Core
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans8" id="ans8_3" value="c" data-bind = "checked: checkAnswer8"
+            />c.	Server-Side
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans8" id="ans8_4" value="d" data-bind = "checked: checkAnswer8"
+            />d. Client-Side
+        </div>
+        <br>
+        <button class="btn pre-btn" onclick="preQuest7()">Previous</button>
+        <button class="btn next-btn" onclick="nextQuest8()">Next</button>
+    </div> <!-- End question 8 -->
+
+    <div class="question" id="q9">
+        <h2>Question #9</h2>
+        <p>What is the proper escape sequence in JavaScript string literals?</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans9" id="ans9_1" value="a" data-bind = "checked: checkAnswer9"
+            />a. /
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans9" id="ans9_2" value="b" data-bind = "checked: checkAnswer9"
+            />b.	esc.
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans9" id="ans9_3" value="c" data-bind = "checked: checkAnswer9"
+            />c.	\
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans9" id="ans9_4" value="d" data-bind = "checked: checkAnswer9"
+            />d. *
+        </div>
+        <br>
+        <button class="btn pre-btn" onclick="preQuest8()">Previous</button>
+        <button class="btn next-btn" onclick="nextQuest9()">Next</button>
+    </div> <!-- End question 9 -->
+
+    <div class="question" id="q10">
+        <h2>Question #10</h2>
+        <p>A Boolean value represents truth or falsehood, on or off, yes or no.</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans10" id="ans10_1" value="a" data-bind = "checked: checkAnswer10"
+            />a. True
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ans10" id="ans10_2" value="b" data-bind = "checked: checkAnswer10"
+            />b. False
+        </div>
+        <br><br><br><br>
+        <button class="btn pre-btn" onclick="preQuest9()">Previous</button>
+        <button type="submit" class="btn btn-success float-right" onclick="openRank()">Submit</button>
+    </div> <!-- End question 10 -->
+
+    </div> <!-- End Quiz Container -->
+
+    <div id="rank-container">
+        <h2>Rank</h2>
+        <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                  <h4 id="person"></h4>
+              </div>
+              <div class="col-sm">
+                  <h4 id="scoreDisplay"></h4>
+              </div>
+              <div class="col-sm">
+                  <h4 id="rankDisplay"></h4>
+              </div>
+            </div>
+          </div>
+        
+        <div id="rank-box">
+        <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Question</th>
+                <th scope="col">Correct Answer</th>
+                <th scope="col">Your Answer</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <th scope="row">1.</th>
+                  <td>
+                    <p>What does ES5 stand for?
+                    <br>a. ECMAScript 5
+                    <br>b. ECMAScript 2009
+                    <br>c. Both A and B
+                    <br>d. None of the above
+                    </p>
+                  </td>
+                  <td>c</td>
+                  <td><span data-bind = "text:checkAnswer1"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">2.</th>
+                  <td>
+                    <p>Which is the proper statement to return “Hello World” text to the console.
+                    <br>a. return Hello World
+                    <br>b. Log(“Hello World”);
+                    <br>c. console.log("Hello World");
+                    <br>d. function(Hello World){}
+                    </p>
+                  </td>
+                  <td>c</td>
+                  <td><span data-bind = "text:checkAnswer2"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">3.</th>
+                  <td>
+                    <p>What method calls a function once for each array element?
+                    <br>a. instanceOf()
+                    <br>b. forEach()
+                    <br>c. indexOf()
+                    <br>d. None of the above
+                    </p>
+                  </td>
+                  <td>b</td>
+                  <td><span data-bind = "text:checkAnswer3"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">4.</th>
+                  <td>
+                    <p>Which built-in method returns the length of the string?
+                    <br>a. length()
+                    <br>b. size()
+                    <br>c. index()
+                    <br>d. indexOf()
+                    </p>
+                  </td>
+                  <td>a</td>
+                  <td><span data-bind = "text:checkAnswer4"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">5.</th>
+                  <td>
+                    <p>Which is NOT a valid way to create a JavaScript object?
+                    <br>a. const example = x;
+                    <br>b. var x = new Object();
+                    <br>c. var empty = {}
+                    <br>d. Object.create()
+                    </p>
+                  </td>
+                  <td>a</td>
+                  <td><span data-bind = "text:checkAnswer5"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">6.</th>
+                  <td>
+                    <p>“Public” and “Private” are the two most common keywords in JavaScript syntax to declare accessibility to an object.
+                    <br>a. True
+                    <br>b. False 
+                    </p>
+                  </td>
+                  <td>b</td>
+                  <td><span data-bind = "text:checkAnswer6"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">7.</th>
+                  <td>
+                    <p>Which of the options is the correct way to create an empty array in JavaScript?
+                    <br>a. var arr = [empty];
+                    <br>b. var empty = [];
+                    <br>c. var empty = {};
+                    <br>d. var arr = a[0];
+                    </p>
+                  </td>
+                  <td>b</td>
+                  <td><span data-bind = "text:checkAnswer7"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">8.</th>
+                  <td>
+                    <p>______ JavaScript enables the manipulation of web pages and client browsers.
+                    <br>a. Back-End
+                    <br>b. Core
+                    <br>c. Server-Side
+                    <br>d. Client-Side
+                    </p>
+                  </td>
+                  <td>d</td>
+                  <td><span data-bind = "text:checkAnswer8"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">9.</th>
+                  <td>
+                    <p>What is the proper escape sequence in JavaScript string literals?
+                    <br>a. /
+                    <br>b. esc.
+                    <br>c. \
+                    <br>d. *
+                    </p>
+                  </td>
+                  <td>c</td>
+                  <td><span data-bind = "text:checkAnswer9"></span></td>
+                </tr>
+                <tr>
+                  <th scope="row">10.</th>
+                  <td>
+                    <p>A Boolean value represents truth or falsehood, on or off, yes or no.
+                    <br>a. True
+                    <br>b. False
+                    </p>
+                  </td>
+                  <td>a</td>
+                  <td><span data-bind = "text:checkAnswer10"></span></td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+    </div> <!-- End rank container -->
+
+    <div id="bio-container">
+
+      <div id="group-bio">
+        <h2>Commit to Master</h2>
+        <p>Commit to Master joined together in 2019 for the sole purpose of creating web-based applications. We are a brand-new team of developers working together in the Web Development cohort program at Bellevue University, studying under Professor Krasso. Our coding experience includes HTML, CSS, and JavaScript programming languages while currently studying Node.js. We are passionate about learning and collaborating with one another to develop websites using the latest programming languages following current industry standards. Our team members include Andrew Hemminger (Team Captain), Jordan Hennessy and Gabriel Sanchez. We have 5 years combined experience in web development. We specialize in User Experience, not only do our applications look great, but they’re user friendly, too! See our individual developer bios below for details about all of our team members. With our combined development experience, we are working hard together coding and collaborating to build a new webpage that will show off our experience and test your JavaScript knowledge.
+        </p>
+
+        <h3>Our Team</h3>
+        <div id="image-container">
+          <div onclick="andrewOpen()" class="bio-image">
+            <img src="images/andrew.png" alt="Andrew">
+          </div>
+          <div class="bio-image" onclick="jordanOpen()">
+            <img src="images/jordan.png" alt="Jordan">
+          </div>
+          <div class="bio-image" onclick="gabrielOpen()">
+            <img src="images/gabriel.png" alt="Gabriel">
+          </div>
+        </div>
+      </div>
+
+      <div id="andrewBio">
+        <img src="images/andrew.png" class="indBioImg" alt="Andrew">
+        <h2>Andrew Hemminger</h2>
+        <p>Aspiring web developer working toward a bachelors in web development at Bellevue University. Experience coding with HTML, CSS, JavaScript, PowerShell. Currently working at Nebraska Furniture Mart as a Test Automation Lead in the Software and Applications Development department utilizing the Microsoft stack. Following the Agile methodology with a focus on quality and automation. Transiting into the web development industry 2.5 years ago I really found a new passion for a career field. My background prior was electronics installation which involved some different types of coding to configure whole home automation systems which gave me the experience to put my foot in the door to become a software tester for the Nebraska Furniture Mart website. I work with a great team of people that are always willing to collaborate and share knowledge with one another helping to grow my skill-sets in all areas surrounding web development. I am striving toward completing my degree in web development at Bellevue University to help accelerate my career and become a better developer.
+        </p>
+        <div class="social-container">
+          <button onclick="gabrielOpen()" class="btn pre-btn">Gabriel</button>
+          <a href="mailto:arhemminger@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/andrew-hemminger-a0a247133/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/arhemminger" target="_blank"><i class="fab fa-github"></i></a>
+          <button onclick="jordanOpen()" class="btn next-btn">Jordan</button>
+        </div>
+      </div>
+
+      <div id="jordanBio">
+        <img src="images/jordan.png" class="indBioImg" alt="Jordan">
+        <h2>Jordan Hennessy</h2>
+        <p>Hi, my name is Jordan Hennessy! I’m a 26-year-old, INFJ, based in Omaha, Nebraska. I currently am a Junior at Bellevue University, working towards a bachelors degree in Web Development. In 2017, I received an associate degree in Media Generalist (i.e. graphic design, animation, videography, photography and web design) from Metropolitan Community College. Also, I am the Web Designer for Pixel Fire Marketing, where I create websites for local businesses from contractors to craft stores. If you haven’t got the hint yet, I love to create! While I have a wide set of skills, my favorite platforms to create on are web and video. I also have experience in social media and email campaigns, helping businesses grow their online presence and drive traffic to their website. In my free time, I enjoy being in nature, whether I’m camping, kayaking, hiking or just chilling in my hammock. I also appreciate a great cup of coffee!
+        </p>
+        <div class="social-container">
+          <button onclick="andrewOpen()" class="btn pre-btn">Andrew</button>
+          <a href="mailto:jorrdygirl@me.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/jordan-hennessy-30a90a135/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/jehennessy" target="_blank"><i class="fab fa-github"></i></a>
+          <button onclick="gabrielOpen()" class="btn next-btn">Gabriel</button>
+        </div>
+      </div>
+
+      <div id="gabrielBio">
+        <img src="images/gabriel.png" class="indBioImg" alt="Gabriel">
+        <h2>Gabriel Sanchez</h2>
+        <p>My name is Gabriel Sanchez Serna, I have an Associate's degree in Computer Science, Networking. I am currently attending Bellevue University for a Web Development Bachelor. I am currently working in Greater Omaha Packing as a Desktop Specialist Technician. I am working with a great Tech team, where most of my team members are engineers and the great part is that they are willing to share their skills.  I am new to web design, but I am really interested in this career. I had a website design class at Metro, and since then I loved the concept, it was really fun to go throughout the class assignments. I enjoy making websites, and my goal is to obtain the necessary mad skills to develop modern websites. After getting my bachelor’s I am planning to look for a job where I can utilize my skills and get experience in web development.
+        </p>
+        <div class="social-container">
+          <button onclick="jordanOpen()" class="btn pre-btn">Jordan</button>
+          <a href="mailto:gabrielsanchezserna@outlook.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/gabriel-sanchez-b407a015a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/GabrielSanchez2018" target="_blank"><i class="fab fa-github"></i></a>
+          <button onclick="andrewOpen()" class="btn next-btn">Andrew</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </body>
+  <script>
+    // function to bind quiz answer selections.
+    function ViewModel () {     
+       checkAnswer1 =  ko.observable("No selection made");
+       checkAnswer2 =  ko.observable("No selection made");
+       checkAnswer3 =  ko.observable("No selection made");
+       checkAnswer4 =  ko.observable("No selection made");
+       checkAnswer5 =  ko.observable("No selection made");
+       checkAnswer6 =  ko.observable("No selection made");
+       checkAnswer7 =  ko.observable("No selection made");
+       checkAnswer8 =  ko.observable("No selection made");
+       checkAnswer9 =  ko.observable("No selection made");
+       checkAnswer10 =  ko.observable("No selection made");
+    };
+    var vm = new ViewModel();
+    ko.applyBindings(vm);
+ </script>
+</html>

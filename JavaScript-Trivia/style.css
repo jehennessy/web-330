@@ -1,0 +1,201 @@
+body {
+  background-image: url("images/background-overlay-graphic.png"), linear-gradient(#2A5E98, #262F56);
+  background-size: contain;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 68px;
+  color: #fff;
+  margin: 50px;
+}
+
+h2 {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 38px;
+  color: #02C6EC;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 26px;
+  text-align: center;
+}
+
+.nav-icon {
+  width: 100px;
+  position: fixed;
+  margin: 20px;
+}
+
+#quiz-icon {
+  top: 0;
+  left: 0;
+}
+
+#rank-icon {
+  top: 0;
+  right: 0;
+}
+
+#bio-icon {
+  bottom: 0;
+  right: 0;
+}
+
+#home-icon {
+  bottom: 0;
+  left: 0;
+}
+
+#quiz-icon:hover, #rank-icon:hover, #bio-icon:hover, #home-icon:hover {
+  cursor: pointer;
+}
+
+#quiz-container {
+  display: none;
+}
+
+#rank-container {
+  display: none;
+}
+
+#bio-container {
+  display: none;
+}
+
+#home-graphic {
+  width: 100%;
+  margin-top: -100px;
+}
+
+.question, .score-container  {
+  display: none;
+}
+
+#quiz-container, #rank-container, #bio-container {
+  width: 60%;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 15px;
+  height: 500px;
+  position: fixed;
+  top: 20%;
+  left: 20%;
+}
+
+.quiz-box {
+  padding: 20px;
+  height: 50px;
+  border-radius: 15px;
+  margin: 20px auto;
+}
+
+.btn {
+  background-image: linear-gradient(#02C6EC, #2A5E98);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 30px;
+  color: #fff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 26px;
+}
+
+#start-btn {
+  width: 40%;
+  margin: 50px auto;
+  display: block;
+}
+
+.next-btn {
+  float: right;
+  display: inline-block;
+}
+
+.pre-btn {
+  float: left;
+  display: inline-block;
+}
+
+.question p {
+  text-align: center;
+  font-size: 22px;
+  margin: 20px auto 30px;
+}
+
+.form-check {
+  margin: auto;
+  display: block;
+  width: 50%;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+#rank {
+  color: #FF7062;
+}
+
+#rank-box {
+  width: 100%;
+  height: 85%;
+  margin: 5px auto;
+  overflow-y: scroll;
+  border: 1px solid #707070;
+  border-radius: 15px;
+  
+}
+
+#bio-container {
+  width: 80%;
+  height: auto;
+  padding: 25px 50px;
+  left: 10%;
+}
+
+#bio-container h3 {
+  color: #02C6EC;
+}
+
+#image-container {
+  margin: auto;
+  display: block;
+  width: 400px;
+}
+.bio-image {
+  display: inline-block;
+}
+
+.bio-image img {
+  width: 125px;
+}
+
+.bio-image img:hover {
+  width: 130px;
+  cursor: pointer;
+}
+
+#andrewBio, #jordanBio, #gabrielBio {
+  display: none;
+}
+
+.indBioImg {
+  width: 200px;
+  margin: auto;
+  display: block;
+}
+
+.social-container {
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.social-container a {
+  color: #FF7062;
+  font-size: 28px;
+  margin: 0 20px;
+  text-align: center;
+}
